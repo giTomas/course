@@ -9,7 +9,7 @@ const ProfilePic = ({ username }) => (
 );
 
 const ProfileLink = ({ username }) => (
-  <a href={`https://www.fb.com//${username}`}>
+  <a href={`https://www.github.com//${username}`}>
     {username.replace('.', ' ')}
   </a>
 );
@@ -22,13 +22,20 @@ ProfileLink.propTypes = {
   username: PropTypes.string.isRequired,
 };
 
-const username = 'tomas.kosegi';
+const USERDATA = {
+  'tomas.kosegi'
+};
+
+const Avatar = ({USER_DATA}) => (
+  <div>
+    <ProfilePic imageUrl={USER_DATA.username} />
+    <ProfileName name={USER_DATA.name} />
+    <ProfileLink username={USER_DATA.username} />
+  </div>
+);
 
 const App = () => (
-  <div>
-    <ProfilePic username={username} />
-    <ProfileLink username={username} />
-  </div>
+  <Avatar USER_DATA={USERDATA} />
 );
 
 export default App;
